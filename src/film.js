@@ -75,7 +75,7 @@ window.app = window.app || {};
 
     film = document.createElement("div");
     film.setAttribute("class", "card d-flex");
-    film.style.width = "200px";
+    film.style.maxWidth = "200px";
     film.appendChild(posterImg(props));
     film.appendChild(info(props));
     film.appendChild(footer(props));
