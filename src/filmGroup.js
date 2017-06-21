@@ -4,7 +4,9 @@ window.app = window.app || {};
   "use strict";
 
   function createFilmGroup(films) {
-    var container = document.createElement("div");
+    var container;
+
+    container = document.createElement("div");
 
     films.forEach(function(film) {
       var filmCard = app.createFilm(film);
