@@ -3,14 +3,26 @@ window.app = window.app || {};
 (function(app, mainAppId) {
   "use strict";
 
-  var allFilms = app.films;
+  var FILM_ROUTE = "http://swapi.co/api/films/?format=json";
 
-  for (var i = 0, j = allFilms.length; i < j; i += 6) {
-    var slicedFilms = allFilms.slice(i, i + 6);
-    var row = app.createFilmRow(slicedFilms);
+  function getFilms(filmUrl, mainDiv) {
+    function reqListener () {
+      var results = JSON.parse(this.responseText).results;
 
-    document.getElementById(mainAppId).appendChild(row);
+      for (var i = 0, j = results.length; i < j; i += 2) {
+        var slicedFilms = results.slice(i, i + 2);
+        var row = app.createFilmGroup(slicedFilms);
+
+        mainDiv.appendChild(row);
+      }
+      app.createChart("myChart", app.films);
+    }
+
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListener);
+    oReq.open("GET", filmUrl);
+    oReq.send();
   }
 
-  app.createChart("myChart", app.films);
+  getFilms(FILM_ROUTE, document.getElementById(mainAppId));
 }(window.app, "main"));

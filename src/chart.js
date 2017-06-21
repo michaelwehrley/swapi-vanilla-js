@@ -11,7 +11,7 @@ window.app = window.app || {};
 
   function createChart(chartId, rawData) {
     var ctx = document.getElementById(chartId).getContext("2d");
-    return new Chart(ctx, {
+    return new window.Chart(ctx, {
       type: "bar",
       data: {
         labels: rawData.map(function(film) {
