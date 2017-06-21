@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/michaelwehrley/swapi-vanilla-js#readme",
   "dependencies": {
+    "bootstrap": "4.0.0-alpha.6",
     "chart.js": "2.6.0"
   },
   "devDependencies": {}
