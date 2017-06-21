@@ -1,0 +1,27 @@
+{
+  "name": "swapi-vanilla-js",
+  "version": "1.0.0",
+  "description": "A simple react application display StarWars movie info",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelwehrley/swapi-vanilla-js.git"
+  },
+  "keywords": [
+    "SWAPI",
+    "React",
+    "Star Wars API"
+  ],
+  "author": "Michael S. Wehrley <michael.wehrley@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaelwehrley/swapi-vanilla-js/issues"
+  },
+  "homepage": "https://github.com/michaelwehrley/swapi-vanilla-js#readme",
+  "dependencies": {},
+  "devDependencies": {}
+}
