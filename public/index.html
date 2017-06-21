@@ -13,7 +13,7 @@
         <a class="navbar-brand" href="#">SWAPI</a>
       </nav>
       <div class="row">
-        <div id="sidebar" class="col-3">
+        <div id="sidebar" class="col-4">
           <div class="card">
             <img class="card-img-top" src="./images/r2-d2.png" alt="r2 d2" style="width: 100%;">
             <div class="card-block">
@@ -29,14 +29,17 @@
               <p class="card-text">Least Favorite Character</p>
             </div>
           </div>
+          <canvas id="myChart" width="400" height="400"></canvas>
         </div>
-        <div id="main" class="col-9"></div>
+        <div id="main" class="col-8"></div>
       </div>
     </div>
+    <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
     <script src="../src/films.js"></script>
     <script src="../src/film.js"></script>
     <script src="../src/filmGroup.js"></script>
     <script src="../src/filmRow.js"></script>
+    <script src="../src/chart.js"></script>
     <script src="../src/app.js"></script>
   </body>
 </html>

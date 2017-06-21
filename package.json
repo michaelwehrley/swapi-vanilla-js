@@ -22,6 +22,8 @@
     "url": "https://github.com/michaelwehrley/swapi-vanilla-js/issues"
   },
   "homepage": "https://github.com/michaelwehrley/swapi-vanilla-js#readme",
-  "dependencies": {},
+  "dependencies": {
+    "chart.js": "2.6.0"
+  },
   "devDependencies": {}
 }

@@ -11,4 +11,6 @@ window.app = window.app || {};
 
     document.getElementById(mainAppId).appendChild(row);
   }
+
+  app.createChart("myChart", app.films);
 }(window.app, "main"));
