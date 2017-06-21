@@ -3,13 +3,35 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="./bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 
     <title>SWAPI Vanilla JS</title>
   </head>
-  <body>
+  <body style="margin-top: 70px;">
     <div class="container-fluid">
-      <div id="root"></div>
+      <nav class="navbar navbar-inverse fixed-top bg-inverse">
+        <a class="navbar-brand" href="#">SWAPI</a>
+      </nav>
+      <div class="row">
+        <div id="sidebar" class="col-3">
+          <div class="card">
+            <img class="card-img-top" src="./images/r2-d2.png" alt="r2 d2" style="width: 100%;">
+            <div class="card-block">
+              <h4 class="card-title">r2 d2</h4>
+              <p class="card-text">Favorite Character.</p>
+            </div>
+          </div>
+          <br />
+          <div class="card">
+            <img class="card-img-top" src="./images/jar-jar-binks.png" alt="Jar Jar Binks" style="width: 100%;">
+            <div class="card-block">
+              <h4 class="card-title">Jar Jar Binks</h4>
+              <p class="card-text">Least Favorite Character</p>
+            </div>
+          </div>
+        </div>
+        <div id="main" class="col-9"></div>
+      </div>
     </div>
     <script src="../src/films.js"></script>
     <script src="../src/film.js"></script>

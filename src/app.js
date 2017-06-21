@@ -11,4 +11,4 @@ window.app = window.app || {};
 
     document.getElementById(mainAppId).appendChild(row);
   }
-}(window.app, "root"));
+}(window.app, "main"));
