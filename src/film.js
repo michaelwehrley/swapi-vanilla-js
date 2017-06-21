@@ -3,10 +3,25 @@ window.app = window.app || {};
 (function(app) {
   "use strict";
 
-  var IMG_DIR = "../public/images/";
-  var EXTENSION = ".jpg";
+  var constants;
+  constants = app.constants;
+
+  function createFilm(props) {
+    var film;
+
+    film = document.createElement("div");
+    film.setAttribute("class", "card d-flex");
+    film.style.maxWidth = "200px";
+    film.appendChild(posterImg(props));
+    film.appendChild(info(props));
+    film.appendChild(footer(props));
+
+    return film;
+  }
 
   function getCharacter(characterUrl, characterList) {
+    var oReq;
+
     function reqListener () {
       var li;
 
@@ -15,16 +30,18 @@ window.app = window.app || {};
       characterList.append(li);
     }
 
-    var oReq = new XMLHttpRequest();
+    oReq = new XMLHttpRequest();
     oReq.addEventListener("load", reqListener);
-    oReq.open("GET", characterUrl + "?format=json");
+    oReq.open("GET", characterUrl + constants.FORMAT);
     oReq.send();
   }
 
   function posterImg(props) {
-    var img = document.createElement("img");
+    var img;
+
+    img = document.createElement("img");
     img.setAttribute("class", "card-img-top");
-    img.src = IMG_DIR + props.title.replace(/ /g, "_").toLowerCase() + EXTENSION;
+    img.src = constants.IMG_DIR + props.title.replace(/ /g, "_").toLowerCase() + constants.EXTENSION;
 
     return img;
   }
@@ -68,19 +85,6 @@ window.app = window.app || {};
     footer.appendChild(content);
 
     return footer;
-  }
-
-  function createFilm(props) {
-    var film;
-
-    film = document.createElement("div");
-    film.setAttribute("class", "card d-flex");
-    film.style.maxWidth = "200px";
-    film.appendChild(posterImg(props));
-    film.appendChild(info(props));
-    film.appendChild(footer(props));
-
-    return film;
   }
 
   app.createFilm = createFilm;
