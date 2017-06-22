@@ -1,6 +1,4 @@
-window.app = window.app || {};
-
-(function(app) {
+(function(global) {
   "use strict";
 
   function createFilmGroup(films) {
@@ -10,7 +8,7 @@ window.app = window.app || {};
     container.setAttribute("class", "mr-3 mb-3 d-inline-flex");
 
     films.forEach(function(film) {
-      var filmCard = app.createFilm(film);
+      var filmCard = global.app.createFilm(film);
 
       container.appendChild(filmCard);
     });
@@ -18,5 +16,6 @@ window.app = window.app || {};
     return container;
   }
 
-  app.createFilmGroup = createFilmGroup;
-}(window.app));
+  global.app = global.app || {};
+  global.app.createFilmGroup = createFilmGroup;
+}(window));

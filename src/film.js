@@ -1,10 +1,8 @@
-window.app = window.app || {};
-
-(function(app) {
+(function(global) {
   "use strict";
 
   var constants;
-  constants = app.constants;
+  constants = global.app.constants;
 
   function createFilm(props) {
     var film;
@@ -26,8 +24,8 @@ window.app = window.app || {};
       var li;
 
       li = document.createElement("li");
-      li.innerText = JSON.parse(this.responseText).name;
-      characterList.append(li);
+      li.innerHTML = JSON.parse(this.responseText).name;
+      characterList.appendChild(li);
     }
 
     oReq = new XMLHttpRequest();
@@ -87,5 +85,6 @@ window.app = window.app || {};
     return footer;
   }
 
-  app.createFilm = createFilm;
-}(window.app));
+  global.app = global.app || {};
+  global.app.createFilm = createFilm;
+}(window));

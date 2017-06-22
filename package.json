@@ -4,8 +4,11 @@
   "description": "A simple react application display StarWars movie info",
   "main": "index.js",
   "scripts": {
+    "prebuild:dev": "rimraf dist",
     "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "webpack --env.dev",
+    "validate": "npm-run-all --parallel lint build:dev"
   },
   "repository": {
     "type": "git",
@@ -26,5 +29,9 @@
     "bootstrap": "4.0.0-alpha.6",
     "chart.js": "2.6.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "npm-run-all": "4.0.2",
+    "rimraf": "2.6.1",
+    "webpack": "3.0.0"
+  }
 }

@@ -1,13 +1,14 @@
-window.app = window.app || {};
-
-(function(app, mainAppId) {
+(function(global, mainAppId) {
   "use strict";
+
+  var app = global.app;
 
   function getFilms(filmUrl, mainDiv) {
     var oReq;
 
     function reqListener () {
       var i, j, results, row, slicedFilms;
+
 
       results = JSON.parse(this.responseText).results;
 
@@ -17,7 +18,7 @@ window.app = window.app || {};
 
         mainDiv.appendChild(row);
       }
-      app.createChart("myChart", app.films);
+      app.createChart("myChart", results);
     }
 
     oReq = new XMLHttpRequest();
@@ -26,5 +27,9 @@ window.app = window.app || {};
     oReq.send();
   }
 
-  getFilms(app.constants.FILM_ROUTE, document.getElementById(mainAppId));
-}(window.app, "main"));
+  function onLoad() {
+    getFilms(global.app.constants.FILM_ROUTE + global.app.constants.FORMAT, document.getElementById(mainAppId));
+  }
+
+  window.onload = onLoad;
+}(window, "main"));

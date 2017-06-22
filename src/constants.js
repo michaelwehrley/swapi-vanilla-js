@@ -1,11 +1,13 @@
-window.app = window.app || {};
-
-(function(app) {
+(function(global) {
   "use strict";
 
-  app.constants = {};
-  app.constants.EXTENSION = ".jpg";
-  app.constants.FILM_ROUTE = "http://swapi.co/api/films/";
-  app.constants.FORMAT = "?format=json";
-  app.constants.IMG_DIR = "../public/images/";
-}(window.app));
+  var constants = {};
+
+  constants.EXTENSION = ".jpg";
+  constants.FILM_ROUTE = "http://swapi.co/api/films/";
+  constants.FORMAT = "?format=json";
+  constants.IMG_DIR = "../public/images/";
+
+  global.app = global.app || {};
+  global.app.constants = constants;
+}(window));

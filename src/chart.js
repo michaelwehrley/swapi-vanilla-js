@@ -1,6 +1,4 @@
-window.app = window.app || {};
-
-(function(app) {
+(function(global) {
   "use strict";
 
   var REG_EX = /(\S+)/g;
@@ -55,5 +53,6 @@ window.app = window.app || {};
     });
   }
 
-  return app.createChart = createChart;
-}(window.app));
+  global.app = global.app || {};
+  global.app.createChart = createChart;
+}(window));
