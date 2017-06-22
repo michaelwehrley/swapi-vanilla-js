@@ -8,6 +8,7 @@
     "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack --env.dev",
+    "dev": "webpack-dev-server --env.dev",
     "validate": "npm-run-all --parallel lint build:dev"
   },
   "repository": {
@@ -30,8 +31,10 @@
     "chart.js": "2.6.0"
   },
   "devDependencies": {
+    "eslint": "4.0.0",
     "npm-run-all": "4.0.2",
     "rimraf": "2.6.1",
-    "webpack": "3.0.0"
+    "webpack": "3.0.0",
+    "webpack-dev-server": "2.5.0"
   }
 }
