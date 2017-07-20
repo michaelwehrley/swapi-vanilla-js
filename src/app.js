@@ -2,6 +2,7 @@
   "use strict";
 
   var app = global.app;
+  // global.app.cachedCharacters = {};
 
   function getFilms(filmUrl, mainDiv) {
     var oReq;

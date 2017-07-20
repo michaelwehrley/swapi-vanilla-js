@@ -3,6 +3,8 @@
 
   var constants;
   constants = global.app.constants;
+  // var cachedCharacters = {};
+  global.app.cachedCharacters = {};
 
   function createFilm(props) {
     var film;
@@ -18,20 +20,38 @@
   }
 
   function getCharacter(characterUrl, characterList) {
-    var oReq;
+    var oReq, cachedCharacters = global.app.cachedCharacters;
 
-    function reqListener () {
+    console.log("characterUrl", characterUrl);
+    console.log("cachedCharacters[characterUrl]", cachedCharacters[characterUrl])
+    if (cachedCharacters[characterUrl]) {
+      buildLI(cachedCharacters[characterUrl]);
+    } else {
+      oReq = new XMLHttpRequest();
+      // oReq.addEventListener("load", reqListener);
+      oReq.onreadystatechange = reqListener;
+      oReq.open("GET", characterUrl + constants.FORMAT);
+      oReq.send();
+    }
+
+    function reqListener (response) {
+      if (oReq.readyState === XMLHttpRequest.DONE) {
+        if (oReq.status === 200) {
+          cachedCharacters[characterUrl] = JSON.parse(this.responseText).name;
+          buildLI(cachedCharacters[characterUrl]);
+        } else {
+          console.warn('There was a problem with the request.');
+        }
+      }
+    }
+
+    function buildLI(name) {
       var li;
 
       li = document.createElement("li");
-      li.innerHTML = JSON.parse(this.responseText).name;
+      li.innerHTML = name;
       characterList.appendChild(li);
     }
-
-    oReq = new XMLHttpRequest();
-    oReq.addEventListener("load", reqListener);
-    oReq.open("GET", characterUrl + constants.FORMAT);
-    oReq.send();
   }
 
   function posterImg(props) {
@@ -66,6 +86,8 @@
     props.characters.slice(0, 3).forEach(function(character) {
       getCharacter(character, characterList);
     });
+
+    console.log("global.app.cachedCharaters", global.app.cachedCharacters);
 
     container.appendChild(characterList);
 
